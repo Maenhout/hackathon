@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Header from './components/Header/Header';
+import Description from './components/Description/Description';
 import SubmissionForm from './components/SubmissionForm/SubmissionForm';
 import SwapRequest from './components/SwapRequest/SwapRequest';
 
@@ -22,6 +23,7 @@ function App() {
       <div className="background">
         <Header />
         <div className="App">
+          <Description />
           <SwapRequest />
           <SubmissionForm />
         </div>
