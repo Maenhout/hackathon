@@ -5,29 +5,24 @@ import SubmissionForm from './components/SubmissionForm/SubmissionForm';
 import SwapRequest from './components/SwapRequest/SwapRequest';
 
 const SApp = styled.div`
-  .background {
+  .App {
     height: 85vh;
     background-image: url('/background.jpg');
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: center;
   }
-  .App {
-    padding-top: 80px;
-  }
 `;
 
 function App() {
   return (
     <SApp>
-      <div className="background">
-        <Header />
-        <div className="App">
-          <Description />
-          <SwapRequest />
-          <SubmissionForm />
-        </div>
+      <div className="App">
+        <Description />
+        <SwapRequest />
+        <SubmissionForm />
       </div>
+      <Header />
     </SApp>
   );
 }
