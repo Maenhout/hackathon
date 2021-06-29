@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import SsubmissionForm from './Style';
 
 export default function SubmissionForm() {
   const [isSent, setIsSent] = useState(false);
+  const [labels, setLabels] = useState([]);
   const [details, setDetails] = useState({
     id: 1,
+    requestCategory: '1',
   });
 
   const handleChange = (evt) => {
@@ -13,6 +15,12 @@ export default function SubmissionForm() {
     newDetails[evt.target.name] = evt.target.value;
     setDetails(newDetails);
   };
+
+  useEffect(() => {
+    axios.get(`http://localhost:5050/category`).then(({ data }) => {
+      setLabels(data);
+    });
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -40,40 +48,32 @@ export default function SubmissionForm() {
         <form onSubmit={handleSubmit}>
           <p>Robin </p>
 
-          <fieldset className="field1">
+          <fieldset>
             <label htmlFor="requestTitle">
+              Title:
               <input
                 type="text"
-                placeholder="title"
                 name="requestTitle"
                 onChange={handleChange}
                 required
               />
             </label>
             <label htmlFor="requestCategory">
+              Categories :
               <select
                 name="requestCategory"
                 id="requestCategory"
                 onChange={handleChange}
                 required
               >
-                <option>Request categories</option>
-                <option>Graphic & Design</option>
-                <option>Digital Marketing</option>
-                <option>Writing & Translation</option>
-                <option>Video & Animation</option>
-                <option>Music & Audio</option>
-                <option>Programming & Tech</option>
-                <option>Data</option>
-                <option>Business</option>
-                <option>Lifestyle</option>
+                {labels.map((label) => {
+                  return <option value={label.id}>{label.label} </option>;
+                })}
               </select>
             </label>
-
             <label htmlFor="request">
               <textarea
                 name="request"
-                placeholder="I wish"
                 id="Request"
                 cols="30"
                 rows="10"
@@ -82,40 +82,32 @@ export default function SubmissionForm() {
               />
             </label>
           </fieldset>
-          <fieldset className="field2">
+          <fieldset>
             <label htmlFor="offerTitle">
+              Title:
               <input
                 type="text"
-                placeholder="title"
                 name="offerTitle"
                 onChange={handleChange}
                 required
               />
             </label>
             <label htmlFor="offerCategory">
+              Categories :
               <select
                 name="offerCategory"
                 id="offerCategory"
                 onChange={handleChange}
                 required
               >
-                <option>Offer categories </option>
-                <option>Graphic & Design</option>
-                <option>Digital Marketing</option>
-                <option>Writing & Translation</option>
-                <option>Video & Animation</option>
-                <option>Music & Audio</option>
-                <option>Programming & Tech</option>
-                <option>Data</option>
-                <option>Business</option>
-                <option>Lifestyle</option>
+                {labels.map((label) => {
+                  return <option value={label.id}>{label.label} </option>;
+                })}
               </select>
             </label>
-
             <label htmlFor="offer">
               <textarea
                 name="offer"
-                placeholder="I propose"
                 id="offer"
                 cols="30"
                 rows="10"
@@ -123,10 +115,10 @@ export default function SubmissionForm() {
                 required
               />
             </label>
-            <div className="button">
-              <input type="submit" className="active" />
-            </div>
           </fieldset>
+          <div className="button">
+            <input type="submit" className="active" />
+          </div>
         </form>
       )}
     </SsubmissionForm>
