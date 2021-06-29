@@ -6,7 +6,7 @@ import SwapRequest from './components/SwapRequest/SwapRequest';
 
 const SApp = styled.div`
   .App {
-    height: 85vh;
+    height: 90vh;
     background-image: url('/background.jpg');
     background-repeat: no-repeat;
     background-size: 100%;
