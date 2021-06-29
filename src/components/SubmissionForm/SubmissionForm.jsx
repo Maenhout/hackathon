@@ -1,27 +1,31 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import SsubmissionForm from './Style';
 
 export default function SubmissionForm() {
   const [isSent, setIsSent] = useState(false);
+  const [labels, setLabels] = useState([]);
   const [details, setDetails] = useState({
-    offerCategory: '',
-    requestCategory: '',
-    title: '',
-    email: '',
-    offer: '',
-    request: '',
+    id: 1,
+    requestCategory: '1',
   });
+
   const handleChange = (evt) => {
     const newDetails = { ...details };
     newDetails[evt.target.name] = evt.target.value;
     setDetails(newDetails);
   };
 
+  useEffect(() => {
+    axios.get(`http://localhost:5050/category`).then(({ data }) => {
+      setLabels(data);
+    });
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post(`http://localhost:5050/postswap`, details).then(
+    axios.post(`http://localhost:5050/wanted`, details).then(
       (response) => {
         console.log(response);
         setIsSent(true);
@@ -42,83 +46,31 @@ export default function SubmissionForm() {
         </div>
       ) : (
         <form onSubmit={handleSubmit}>
-          <div className="select">
-            <label htmlFor="offerCategory">
-              <select
-                name="offerCategory"
-                id="offerCategory"
+          <p>Robin </p>
+
+          <fieldset>
+            <label htmlFor="requestTitle">
+              Title:
+              <input
+                type="text"
+                name="requestTitle"
                 onChange={handleChange}
                 required
-              >
-                <option>Offer categories </option>
-                <option>Graphic & Design</option>
-                <option>Digital Marketing</option>
-                <option>Writing & Translation</option>
-                <option>Video & Animation</option>
-                <option>Music & Audio</option>
-                <option>Programming & Tech</option>
-                <option>Data</option>
-                <option>Business</option>
-                <option>Lifestyle</option>
-              </select>
+              />
             </label>
             <label htmlFor="requestCategory">
+              Categories :
               <select
                 name="requestCategory"
                 id="requestCategory"
                 onChange={handleChange}
                 required
               >
-                <option>Request categories</option>
-                <option>Graphic & Design</option>
-                <option>Digital Marketing</option>
-                <option>Writing & Translation</option>
-                <option>Video & Animation</option>
-                <option>Music & Audio</option>
-                <option>Programming & Tech</option>
-                <option>Data</option>
-                <option>Business</option>
-                <option>Lifestyle</option>
+                {labels.map((label) => {
+                  return <option value={label.id}>{label.label} </option>;
+                })}
               </select>
             </label>
-          </div>
-          <div className="title">
-            <p>Title :</p>
-            <label htmlFor="title">
-              <input
-                type="text"
-                name="title"
-                onChange={handleChange}
-                required
-              />
-            </label>
-          </div>
-          <div className="email">
-            <p>Email :</p>
-            <label htmlFor="email">
-              <input
-                type="email"
-                name="email"
-                onChange={handleChange}
-                required
-              />
-            </label>
-          </div>
-          <div className="offer">
-            <p>Offer :</p>
-            <label htmlFor="offer">
-              <textarea
-                name="offer"
-                id="offer"
-                cols="30"
-                rows="10"
-                onChange={handleChange}
-                required
-              />
-            </label>
-          </div>
-          <div className="request">
-            <p>Request :</p>
             <label htmlFor="request">
               <textarea
                 name="request"
@@ -129,7 +81,41 @@ export default function SubmissionForm() {
                 required
               />
             </label>
-          </div>
+          </fieldset>
+          <fieldset>
+            <label htmlFor="offerTitle">
+              Title:
+              <input
+                type="text"
+                name="offerTitle"
+                onChange={handleChange}
+                required
+              />
+            </label>
+            <label htmlFor="offerCategory">
+              Categories :
+              <select
+                name="offerCategory"
+                id="offerCategory"
+                onChange={handleChange}
+                required
+              >
+                {labels.map((label) => {
+                  return <option value={label.id}>{label.label} </option>;
+                })}
+              </select>
+            </label>
+            <label htmlFor="offer">
+              <textarea
+                name="offer"
+                id="offer"
+                cols="30"
+                rows="10"
+                onChange={handleChange}
+                required
+              />
+            </label>
+          </fieldset>
           <div className="button">
             <input type="submit" className="active" />
           </div>
