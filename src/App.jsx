@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Header from './components/Header/Header';
 import SubmissionForm from './components/SubmissionForm/SubmissionForm';
-import SwapRequest from './components/SwapRequest/SwapRequest';
+import SwapWanted from './components/SwapWanted/SwapWanted';
 
 const SApp = styled.div`
   .App {
@@ -14,8 +14,8 @@ function App() {
     <SApp>
       <Header />
       <div className="App">
-        <SwapRequest />
         <SubmissionForm />
+        <SwapWanted />
       </div>
     </SApp>
   );
