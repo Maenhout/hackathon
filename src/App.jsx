@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Description from './components/Description/Description';
 import SubmissionForm from './components/SubmissionForm/SubmissionForm';
-import SwapRequest from './components/SwapRequest/SwapRequest';
+import SwapWanted from './components/SwapWanted/SwapWanted';
 
 const SApp = styled.div`
   .App {
@@ -16,14 +17,24 @@ const SApp = styled.div`
 
 function App() {
   return (
-    <SApp>
-      <div className="App">
-        <Description />
-        <SwapRequest />
-        <SubmissionForm />
-      </div>
-      <Header />
-    </SApp>
+    <Router>
+      <Switch>
+        <SApp>
+          <div className="App">
+            <Route>
+              <Description />
+            </Route>
+            <Route path="/swapwanted">
+              <SwapWanted />
+            </Route>
+            <Route path="/form">
+              <SubmissionForm />
+            </Route>
+          </div>
+          <Header />
+        </SApp>
+      </Switch>
+    </Router>
   );
 }
 
