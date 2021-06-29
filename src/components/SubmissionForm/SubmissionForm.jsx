@@ -7,6 +7,7 @@ export default function SubmissionForm() {
   const [labels, setLabels] = useState([]);
   const [details, setDetails] = useState({
     id: 1,
+    requestCategory: '1',
   });
 
   const handleChange = (evt) => {
@@ -14,18 +15,12 @@ export default function SubmissionForm() {
     newDetails[evt.target.name] = evt.target.value;
     setDetails(newDetails);
   };
+
   useEffect(() => {
     axios.get(`http://localhost:5050/category`).then(({ data }) => {
       setLabels(data);
     });
   }, []);
-  const getLabel = (data) => {
-    setLabels(data);
-    labels.map((label) => {
-      console.log(label.id);
-      return label.id;
-    });
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -64,26 +59,16 @@ export default function SubmissionForm() {
               />
             </label>
             <label htmlFor="requestCategory">
+              Categories :
               <select
                 name="requestCategory"
                 id="requestCategory"
                 onChange={handleChange}
-                onClick={getLabel}
                 required
               >
-                <option>Request categories</option>
-                <option
-                  onClick={(data) => {
-                    setLabels(data);
-                    labels.map((label) => {
-                      console.log(label.id);
-                      return label.id[0];
-                    });
-                  }}
-                >
-                  -Music
-                </option>
-                ;
+                {labels.map((label) => {
+                  return <option value={label.id}>{label.label} </option>;
+                })}
               </select>
             </label>
             <label htmlFor="request">
@@ -107,25 +92,19 @@ export default function SubmissionForm() {
                 required
               />
             </label>
-            {/* <label htmlFor="offerCategory">
+            <label htmlFor="offerCategory">
+              Categories :
               <select
                 name="offerCategory"
                 id="offerCategory"
                 onChange={handleChange}
                 required
               >
-                <option>Offer categories </option>
-                <option>Graphic & Design</option>
-                <option>Digital Marketing</option>
-                <option>Writing & Translation</option>
-                <option>Video & Animation</option>
-                <option>Music & Audio</option>
-                <option>Programming & Tech</option>
-                <option>Data</option>
-                <option>Business</option>
-                <option>Lifestyle</option>
+                {labels.map((label) => {
+                  return <option value={label.id}>{label.label} </option>;
+                })}
               </select>
-    </label> */}
+            </label>
             <label htmlFor="offer">
               <textarea
                 name="offer"
