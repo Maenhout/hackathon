@@ -46,34 +46,41 @@ export default function SubmissionForm() {
         </div>
       ) : (
         <form onSubmit={handleSubmit}>
-          <p>Robin </p>
-
           <fieldset>
-            <label htmlFor="requestTitle">
-              Title:
-              <input
-                type="text"
-                name="requestTitle"
-                onChange={handleChange}
-                required
-              />
-            </label>
-            <label htmlFor="requestCategory">
-              Categories :
-              <select
-                name="requestCategory"
-                id="requestCategory"
-                onChange={handleChange}
-                required
-              >
-                {labels.map((label) => {
-                  return <option value={label.id}>{label.label} </option>;
-                })}
-              </select>
-            </label>
+            <div className="reqTitle">
+              <label htmlFor="requestTitle">
+                <div className="request">
+                  <h2>Title :</h2>
+                  <input
+                    type="text"
+                    name="requestTitle"
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+              </label>
+
+              <label htmlFor="requestCategory">
+                <div className="request">
+                  <h2>Category :</h2>
+                  <select
+                    name="requestCategory"
+                    className="category"
+                    id="requestCategory"
+                    onChange={handleChange}
+                    required
+                  >
+                    {labels.map((label) => {
+                      return <option value={label.id}>{label.label} </option>;
+                    })}
+                  </select>
+                </div>
+              </label>
+            </div>
             <label htmlFor="request">
               <textarea
                 name="request"
+                placeholder="I wish"
                 id="Request"
                 cols="30"
                 rows="10"
@@ -83,31 +90,39 @@ export default function SubmissionForm() {
             </label>
           </fieldset>
           <fieldset>
-            <label htmlFor="offerTitle">
-              Title:
-              <input
-                type="text"
-                name="offerTitle"
-                onChange={handleChange}
-                required
-              />
-            </label>
-            <label htmlFor="offerCategory">
-              Categories :
-              <select
-                name="offerCategory"
-                id="offerCategory"
-                onChange={handleChange}
-                required
-              >
-                {labels.map((label) => {
-                  return <option value={label.id}>{label.label} </option>;
-                })}
-              </select>
-            </label>
+            <div className="reqTitle">
+              <label htmlFor="offerTitle">
+                <div className="request">
+                  <h2>Title :</h2>
+                  <input
+                    type="text"
+                    name="offerTitle"
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+              </label>
+              <label htmlFor="offerCategory">
+                <div className="request">
+                  <h2>Category :</h2>
+                  <select
+                    name="offerCategory"
+                    className="category"
+                    id="offerCategory"
+                    onChange={handleChange}
+                    required
+                  >
+                    {labels.map((label) => {
+                      return <option value={label.id}>{label.label} </option>;
+                    })}
+                  </select>
+                </div>
+              </label>
+            </div>
             <label htmlFor="offer">
               <textarea
                 name="offer"
+                placeholder="I propose"
                 id="offer"
                 cols="30"
                 rows="10"
@@ -115,10 +130,10 @@ export default function SubmissionForm() {
                 required
               />
             </label>
+            <div className="button">
+              <input type="submit" className="active" />
+            </div>
           </fieldset>
-          <div className="button">
-            <input type="submit" className="active" />
-          </div>
         </form>
       )}
     </SsubmissionForm>
