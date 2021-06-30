@@ -50,7 +50,7 @@ export default function SubmissionForm() {
             <div className="reqTitle">
               <label htmlFor="requestTitle">
                 <div className="request">
-                  <h2>Title :</h2>
+                  <h2>Title:</h2>
                   <input
                     type="text"
                     name="requestTitle"
@@ -59,13 +59,11 @@ export default function SubmissionForm() {
                   />
                 </div>
               </label>
-
               <label htmlFor="requestCategory">
                 <div className="request">
-                  <h2>Category :</h2>
+                  <h2>Categories :</h2>
                   <select
                     name="requestCategory"
-                    className="category"
                     id="requestCategory"
                     onChange={handleChange}
                     required
@@ -80,7 +78,6 @@ export default function SubmissionForm() {
             <label htmlFor="request">
               <textarea
                 name="request"
-                placeholder="I wish"
                 id="Request"
                 cols="30"
                 rows="10"
@@ -93,7 +90,7 @@ export default function SubmissionForm() {
             <div className="reqTitle">
               <label htmlFor="offerTitle">
                 <div className="request">
-                  <h2>Title :</h2>
+                  <h2> Title:</h2>
                   <input
                     type="text"
                     name="offerTitle"
@@ -104,10 +101,9 @@ export default function SubmissionForm() {
               </label>
               <label htmlFor="offerCategory">
                 <div className="request">
-                  <h2>Category :</h2>
+                  <h2>Categories : </h2>
                   <select
                     name="offerCategory"
-                    className="category"
                     id="offerCategory"
                     onChange={handleChange}
                     required
@@ -122,7 +118,6 @@ export default function SubmissionForm() {
             <label htmlFor="offer">
               <textarea
                 name="offer"
-                placeholder="I propose"
                 id="offer"
                 cols="30"
                 rows="10"
@@ -130,10 +125,10 @@ export default function SubmissionForm() {
                 required
               />
             </label>
-            <div className="button">
-              <input type="submit" className="active" />
-            </div>
           </fieldset>
+          <div className="button">
+            <input type="submit" className="active" />
+          </div>
         </form>
       )}
     </SsubmissionForm>
