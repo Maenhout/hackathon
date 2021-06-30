@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import SDescription from './Style';
+import SwapWanted from '../SwapWanted/SwapWanted';
+import SubmissionForm from '../SubmissionForm/SubmissionForm';
 
 export default function Header() {
   const [isSent, setIsSent] = useState(false);
   const [labels, setLabels] = useState([]);
   const [details, setDetails] = useState({
-    id: 1,
     requestCategory: '1',
   });
+  const [swaps, setSwaps] = useState([]);
+  // const [category, setCategory] = useState('');
 
   const handleChange = (evt) => {
     const newDetails = { ...details };
@@ -22,6 +25,16 @@ export default function Header() {
       setLabels(data);
     });
   }, []);
+
+  useEffect(() => {
+    if (labels) {
+      axios
+        .get(`http://localhost:5050/wantedservice/${details.requestCategory}`)
+        .then(({ data }) => {
+          setSwaps(data);
+        });
+    }
+  }, [details.requestCategory]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -75,6 +88,7 @@ export default function Header() {
           </div>
         </form>
       )}
+      {swaps.length ? <SwapWanted list={swaps} /> : <SubmissionForm />}
     </SDescription>
   );
 }

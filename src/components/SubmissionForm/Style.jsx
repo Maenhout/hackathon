@@ -23,6 +23,14 @@ const SsubmissionForm = styled.div`
     justify-content: space-between;
     margin-bottom: 10px;
   }
+  h1 {
+    font-size: 2em;
+    text-align: center;
+    padding: 40px;
+    background-color: #f5f5f5;
+
+    vertical-align: middle;
+  }
 
   h2 {
     color: white;
@@ -51,7 +59,7 @@ const SsubmissionForm = styled.div`
     border-radius: 4px;
   }
 
-  input {
+  .input {
     width: 300px;
     padding: 0px;
     border: 0px;
@@ -67,14 +75,15 @@ const SsubmissionForm = styled.div`
   }
 
   .button {
-    margin-left: 79%;
-    margin-top: 30px;
+    margin-left: 630px;
+    margin-top: 20px;
   }
   .active {
     background-color: transparent;
     border: solid 1px white;
+    border-radius: 2px;
     color: white;
-    width: 150px;
+    padding: 3px 20px 3px 20px;
   }
 `;
 
