@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 const SNavbar = styled.div`
   position: fixed;
-  top: 0;
   width: 100%;
   font-family: 'Mukta', sans-serif;
   font-size: 16px;
