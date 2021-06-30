@@ -24,11 +24,20 @@ const SsubmissionForm = styled.div`
     margin-bottom: 10px;
   }
 
+  h1 {
+    text-align: center;
+    color: white;
+    padding: 40px;
+    font-size: 36px;
+    font-weight: 600;
+
+    vertical-align: middle;
+  }
+
   h2 {
     color: white;
     font-style: italic;
     margin-bottom: 2px;
-    margin-top: 20px;
   }
 
   .label {
@@ -42,6 +51,8 @@ const SsubmissionForm = styled.div`
     width: 300px;
     height: 2.5em;
     border-radius: 4px;
+    border: none;
+    background-color: white;
   }
 
   .category {
@@ -51,8 +62,8 @@ const SsubmissionForm = styled.div`
     border-radius: 4px;
   }
 
-  input {
-    width: 300px;
+  .input {
+    width: 390px;
     padding: 0px;
     border: 0px;
     height: 2.5em;
@@ -61,20 +72,20 @@ const SsubmissionForm = styled.div`
 
   textarea {
     width: 700px;
-    padding: 0px;
     border: 0px;
     border-radius: 4px;
   }
 
   .button {
-    margin-left: 79%;
-    margin-top: 30px;
+    margin-left: 630px;
+    margin-top: 20px;
   }
   .active {
     background-color: transparent;
     border: solid 1px white;
+    border-radius: 2px;
     color: white;
-    width: 150px;
+    padding: 3px 20px 3px 20px;
   }
 `;
 

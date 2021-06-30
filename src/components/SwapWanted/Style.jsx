@@ -3,7 +3,6 @@ import styled from 'styled-components';
 const SswapRequest = styled.div`
   margin-top: 40px;
   font-family: 'Mukta', sans-serif;
-
   .container {
     display: flex;
     flex-wrap: wrap;
@@ -19,7 +18,6 @@ const SswapRequest = styled.div`
       color: #00d071;
     }
   }
-
   .profile {
     display: flex;
     align-items: center;
@@ -28,8 +26,8 @@ const SswapRequest = styled.div`
     padding: 20px;
     margin: 15px;
     width: 400px;
+    background-color: white;
   }
-
   .avatar {
     width: 60px;
     height: 60px;
@@ -37,30 +35,30 @@ const SswapRequest = styled.div`
     border-radius: 100%;
     width: 19%;
   }
-
   .description {
     display: flex;
     flex-direction: column;
     padding-left: 20px;
     width: 100%;
   }
-
   .title {
     display: flex;
     justify-content: space-between;
-  }
 
+    a {
+      text-decoration: none;
+      color: #404045;
+    }
+  }
   .star {
     color: #ffc44e;
     font-weight: 600;
   }
-
   h2 {
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 600;
     padding-bottom: 10px;
   }
-
   h3 {
     padding-bottom: 7px;
     color: #ff00ae;

@@ -4,7 +4,7 @@ const SDescription = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 85vh;
+  height: 90vh;
 
   margin-left: 165px;
   font-family: 'Mukta', sans-serif;
@@ -25,22 +25,14 @@ const SDescription = styled.div`
     font-style: italic;
   }
 
-  .p-want {
-    font-style: italic;
-    margin-top: 50px;
-  }
-
-  .p-offer {
-    font-style: italic;
-    margin-top: 30px;
-  }
-
   select {
     width: 340px;
     border-radius: 5px;
     height: 35px;
     border: none;
     background-color: white;
+    margin-top: 30px;
+    padding-left: 10px;
   }
 
   input {

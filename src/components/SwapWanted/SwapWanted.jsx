@@ -1,33 +1,27 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import SswapWanted from './Style';
 
-export default function SwapWanted() {
-  const [requests, setRequests] = useState([]);
-
-  useEffect(() => {
-    axios.get(`http://localhost:5050/wantedservice`).then(({ data }) => {
-      setRequests(data);
-    });
-  }, []);
-
+export default function SwapWanted({ list }) {
   return (
     <SswapWanted>
       <h1>
-        <i>{requests.length}</i> Swaps available
+        <i>{list.length}</i> Swaps available
       </h1>
       <div className="container">
-        {requests.map((request) => {
+        {list.map((request) => {
           return (
             <div className="profile">
               <div className="avatar" />
+
               <div className="description">
                 <div className="title">
-                  <h2>{request.username}</h2>
+                  <a href={`mailto:${request.mail}`}>
+                    <h2>{request.username}</h2>
+                  </a>
                   <div className="star">4,8 ★</div>
                 </div>
                 <h3>{request.label}</h3>
-                <p>{request.textWanted}</p>
+                <p>{request.textProposed}</p>
               </div>
             </div>
           );
@@ -36,3 +30,5 @@ export default function SwapWanted() {
     </SswapWanted>
   );
 }
+
+SwapWanted.propTypes = { list: PropTypes.arrayOf(PropTypes.object).isRequired };

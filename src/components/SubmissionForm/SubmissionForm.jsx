@@ -45,91 +45,98 @@ export default function SubmissionForm() {
           </button>
         </div>
       ) : (
-        <form onSubmit={handleSubmit}>
-          <fieldset>
-            <div className="reqTitle">
-              <label htmlFor="requestTitle">
-                <div className="request">
-                  <h2>Title:</h2>
-                  <input
-                    type="text"
-                    name="requestTitle"
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
+        <>
+          <h1>Swap not available, add your swap</h1>
+          <form onSubmit={handleSubmit}>
+            <fieldset>
+              <div className="reqTitle">
+                <label htmlFor="requestTitle">
+                  <div className="request">
+                    <h2>Title</h2>
+                    <input
+                      type="text"
+                      className="input"
+                      name="requestTitle"
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                </label>
+                <label htmlFor="requestCategory">
+                  <div className="request">
+                    <h2>Categories :</h2>
+                    <select
+                      name="requestCategory"
+                      id="requestCategory"
+                      onChange={handleChange}
+                      required
+                    >
+                      {labels.map((label) => {
+                        return <option value={label.id}>{label.label} </option>;
+                      })}
+                    </select>
+                  </div>
+                </label>
+              </div>
+              <label htmlFor="request">
+                <textarea
+                  name="request"
+                  placeholder="I want"
+                  id="Request"
+                  cols="30"
+                  rows="10"
+                  onChange={handleChange}
+                  required
+                />
               </label>
-              <label htmlFor="requestCategory">
-                <div className="request">
-                  <h2>Categories :</h2>
-                  <select
-                    name="requestCategory"
-                    id="requestCategory"
-                    onChange={handleChange}
-                    required
-                  >
-                    {labels.map((label) => {
-                      return <option value={label.id}>{label.label} </option>;
-                    })}
-                  </select>
-                </div>
+            </fieldset>
+            <fieldset>
+              <div className="reqTitle">
+                <label htmlFor="offerTitle">
+                  <div className="request">
+                    <h2> Title</h2>
+                    <input
+                      className="input"
+                      type="text"
+                      name="offerTitle"
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                </label>
+                <label htmlFor="offerCategory">
+                  <div className="request">
+                    <h2>Categories : </h2>
+                    <select
+                      name="offerCategory"
+                      id="offerCategory"
+                      onChange={handleChange}
+                      required
+                    >
+                      {labels.map((label) => {
+                        return <option value={label.id}>{label.label} </option>;
+                      })}
+                    </select>
+                  </div>
+                </label>
+              </div>
+              <label htmlFor="offer">
+                <textarea
+                  name="offer"
+                  placeholder="I propose"
+                  id="offer"
+                  cols="30"
+                  rows="10"
+                  onChange={handleChange}
+                  required
+                />
               </label>
-            </div>
-            <label htmlFor="request">
-              <textarea
-                name="request"
-                id="Request"
-                cols="30"
-                rows="10"
-                onChange={handleChange}
-                required
-              />
-            </label>
-          </fieldset>
-          <fieldset>
-            <div className="reqTitle">
-              <label htmlFor="offerTitle">
-                <div className="request">
-                  <h2> Title:</h2>
-                  <input
-                    type="text"
-                    name="offerTitle"
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-              </label>
-              <label htmlFor="offerCategory">
-                <div className="request">
-                  <h2>Categories : </h2>
-                  <select
-                    name="offerCategory"
-                    id="offerCategory"
-                    onChange={handleChange}
-                    required
-                  >
-                    {labels.map((label) => {
-                      return <option value={label.id}>{label.label} </option>;
-                    })}
-                  </select>
-                </div>
-              </label>
-            </div>
-            <label htmlFor="offer">
-              <textarea
-                name="offer"
-                id="offer"
-                cols="30"
-                rows="10"
-                onChange={handleChange}
-                required
-              />
-            </label>
-          </fieldset>
-          <div className="button">
-            <input type="submit" className="active" />
-          </div>
-        </form>
+              <div className="button">
+                <input type="submit" value="send" className="active" />
+              </div>
+            </fieldset>
+          </form>
+        </>
       )}
     </SsubmissionForm>
   );
