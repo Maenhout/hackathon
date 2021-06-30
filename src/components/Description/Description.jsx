@@ -12,6 +12,7 @@ export default function Header() {
 
   const handleChange = (evt) => {
     const newDetails = { ...details };
+
     newDetails[evt.target.name] = evt.target.value;
     setDetails(newDetails);
   };
