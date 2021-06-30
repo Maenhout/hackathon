@@ -21,6 +21,7 @@ function App() {
       <Switch>
         <SApp>
           <div className="App">
+            <Header />
             <Route>
               <Description />
             </Route>
@@ -31,7 +32,6 @@ function App() {
               <SubmissionForm />
             </Route>
           </div>
-          <Header />
         </SApp>
       </Switch>
     </Router>

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Select from 'react-select';
 import SDescription from './Style';
 
 export default function Header() {
@@ -13,16 +12,14 @@ export default function Header() {
 
   const handleChange = (evt) => {
     const newDetails = { ...details };
+
     newDetails[evt.target.name] = evt.target.value;
     setDetails(newDetails);
   };
 
   useEffect(() => {
     axios.get(`http://localhost:5050/category`).then(({ data }) => {
-      const newCategories = data.map((category) => {
-        return { value: category.id, label: category.label };
-      });
-      setLabels(newCategories);
+      setLabels(data);
     });
   }, []);
 
@@ -60,32 +57,18 @@ export default function Header() {
         <form onSubmit={handleSubmit}>
           <label htmlFor="requestCategory">
             <p className="p-want">Select the domain you want</p>
-            <Select
+            <select
               name="requestCategory"
               id="requestCategory"
               onChange={handleChange}
               required
-              options={labels}
-            />
-            {/* { labels.map((label) => {
+            >
+              {labels.map((label) => {
                 return (
                   <option value={parseInt(label.id, 10)}>{label.label}</option>
                 );
-              }) } */}
-          </label>
-          <label htmlFor="offerCategory">
-            <p className="p-offer">Select the domain you offer</p>
-            <Select
-              name="offerCategory"
-              id="offerCategory"
-              onChange={handleChange}
-              required
-              options={labels}
-            >
-              {/* {labels.map((label) => {
-                return <option value={label.id}>{label.label} </option>;
-              })} */}
-            </Select>
+              })}
+            </select>
           </label>
           <div className="button">
             <input type="submit" className="active" />

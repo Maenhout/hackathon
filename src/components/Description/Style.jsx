@@ -5,6 +5,7 @@ const SDescription = styled.div`
   flex-direction: column;
   justify-content: center;
   height: 90vh;
+
   margin-left: 165px;
   font-family: 'Mukta', sans-serif;
 
@@ -36,8 +37,8 @@ const SDescription = styled.div`
 
   select {
     width: 340px;
-    height: 35px;
     border-radius: 5px;
+    height: 35px;
     border: none;
     background-color: white;
   }
