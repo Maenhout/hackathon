@@ -71,7 +71,7 @@ export default function Header() {
             </select>
           </label>
           <div className="button">
-            <input type="submit" className="active" />
+            <input type="submit" value="Send" className="active" />
           </div>
         </form>
       )}

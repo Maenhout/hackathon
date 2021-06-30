@@ -52,8 +52,12 @@ const SDescription = styled.div`
     border-radius: 5px;
     background-color: transparent;
     border: 1px solid #ff00ae;
-    margin-top: 35px;
-    margin-left: 240px;
+    margin-top: 20px;
+    margin-left: 263px;
+    &:hover {
+      background-color: #ff00ae;
+      color: white;
+    }
   }
 `;
 
