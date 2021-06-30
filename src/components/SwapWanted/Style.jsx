@@ -44,13 +44,18 @@ const SswapRequest = styled.div`
   .title {
     display: flex;
     justify-content: space-between;
+
+    a {
+      text-decoration: none;
+      color: #404045;
+    }
   }
   .star {
     color: #ffc44e;
     font-weight: 600;
   }
   h2 {
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 600;
     padding-bottom: 10px;
   }

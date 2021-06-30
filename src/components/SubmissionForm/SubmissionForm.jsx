@@ -40,20 +40,22 @@ export default function SubmissionForm() {
     <SsubmissionForm>
       {isSent ? (
         <div className="button">
-          <input type="submit" value="sent" className="inactive" />
+          <button type="button" className="inactive">
+            Submitted
+          </button>
         </div>
       ) : (
         <>
           <h1>Swap not available, add your swap</h1>
-
           <form onSubmit={handleSubmit}>
             <fieldset>
               <div className="reqTitle">
                 <label htmlFor="requestTitle">
                   <div className="request">
-                    <h2>Title:</h2>
+                    <h2>Title</h2>
                     <input
                       type="text"
+                      className="input"
                       name="requestTitle"
                       onChange={handleChange}
                       required
@@ -79,6 +81,7 @@ export default function SubmissionForm() {
               <label htmlFor="request">
                 <textarea
                   name="request"
+                  placeholder="I want"
                   id="Request"
                   cols="30"
                   rows="10"
@@ -91,8 +94,9 @@ export default function SubmissionForm() {
               <div className="reqTitle">
                 <label htmlFor="offerTitle">
                   <div className="request">
-                    <h2> Title:</h2>
+                    <h2> Title</h2>
                     <input
+                      className="input"
                       type="text"
                       name="offerTitle"
                       onChange={handleChange}
@@ -119,6 +123,7 @@ export default function SubmissionForm() {
               <label htmlFor="offer">
                 <textarea
                   name="offer"
+                  placeholder="I propose"
                   id="offer"
                   cols="30"
                   rows="10"
@@ -127,7 +132,7 @@ export default function SubmissionForm() {
                 />
               </label>
               <div className="button">
-                <input value="send" type="submit" className="active" />
+                <input type="submit" value="send" className="active" />
               </div>
             </fieldset>
           </form>

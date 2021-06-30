@@ -12,31 +12,21 @@ export default function SwapWanted({ list }) {
           return (
             <div className="profile">
               <div className="avatar" />
+
               <div className="description">
                 <div className="title">
-                  <h2>{request.username}</h2>
+                  <a href={`mailto:${request.mail}`}>
+                    <h2>{request.username}</h2>
+                  </a>
                   <div className="star">4,8 ★</div>
                 </div>
                 <h3>{request.label}</h3>
-                <p>{request.textWanted}</p>
+                <p>{request.textProposed}</p>
               </div>
             </div>
           );
         })}
       </div>
-      {/* <h1>{list.length} swaps available</h1>
-      <div className="container">
-        {list.map((request) => {
-          return (
-            <div className="description">
-              <h2>{request.username}</h2>
-
-              <h3>{request.label}</h3>
-              <p>{request.textWanted}</p>
-            </div>
-          );
-        })}
-      </div> */}
     </SswapWanted>
   );
 }

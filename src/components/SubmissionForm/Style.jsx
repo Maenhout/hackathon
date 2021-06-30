@@ -23,11 +23,13 @@ const SsubmissionForm = styled.div`
     justify-content: space-between;
     margin-bottom: 10px;
   }
+
   h1 {
-    font-size: 2em;
     text-align: center;
+    color: white;
     padding: 40px;
-    background-color: #f5f5f5;
+    font-size: 36px;
+    font-weight: 600;
 
     vertical-align: middle;
   }
@@ -36,7 +38,6 @@ const SsubmissionForm = styled.div`
     color: white;
     font-style: italic;
     margin-bottom: 2px;
-    margin-top: 20px;
   }
 
   .label {
@@ -50,6 +51,8 @@ const SsubmissionForm = styled.div`
     width: 300px;
     height: 2.5em;
     border-radius: 4px;
+    border: none;
+    background-color: white;
   }
 
   .category {
@@ -60,7 +63,7 @@ const SsubmissionForm = styled.div`
   }
 
   .input {
-    width: 300px;
+    width: 390px;
     padding: 0px;
     border: 0px;
     height: 2.5em;
@@ -69,7 +72,6 @@ const SsubmissionForm = styled.div`
 
   textarea {
     width: 700px;
-    padding: 0px;
     border: 0px;
     border-radius: 4px;
   }

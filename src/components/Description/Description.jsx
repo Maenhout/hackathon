@@ -8,10 +8,9 @@ export default function Header() {
   const [isSent, setIsSent] = useState(false);
   const [labels, setLabels] = useState([]);
   const [details, setDetails] = useState({
-    requestCategory: '1',
+    requestCategory: null,
   });
   const [swaps, setSwaps] = useState([]);
-  // const [category, setCategory] = useState('');
 
   const handleChange = (evt) => {
     const newDetails = { ...details };
@@ -27,9 +26,9 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    if (labels) {
+    if (labels && details.requestCategory) {
       axios
-        .get(`http://localhost:5050/wantedservice/${details.requestCategory}`)
+        .get(`http://localhost:5050/proposedservice/${details.requestCategory}`)
         .then(({ data }) => {
           setSwaps(data);
         });
@@ -51,44 +50,45 @@ export default function Header() {
   };
 
   return (
-    <SDescription>
-      <h2>
-        Welcome to the <br />
-        Fiverr <i>Swap</i>
-      </h2>
-      <p className="description">
-        Here you can propose your skills and get get back <br />
-        the services you need!
-      </p>
-      {isSent ? (
-        <div className="button">
-          <button type="button" className="inactive">
-            Submitted
-          </button>
-        </div>
-      ) : (
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="requestCategory">
-            <p className="p-want">Select the domain you want</p>
-            <select
-              name="requestCategory"
-              id="requestCategory"
-              onChange={handleChange}
-              required
-            >
-              {labels.map((label) => {
-                return (
-                  <option value={parseInt(label.id, 10)}>{label.label}</option>
-                );
-              })}
-            </select>
-          </label>
+    <>
+      <SDescription>
+        <h2>
+          Welcome to the <br />
+          Fiverr <i>Swap</i>
+        </h2>
+        <p className="description">
+          Here you can propose your skills and get back <br />
+          the services you need!
+        </p>
+        {isSent ? (
           <div className="button">
-            <input type="submit" value="Send" className="active" />
+            <button type="button" className="inactive">
+              Submitted
+            </button>
           </div>
-        </form>
-      )}
+        ) : (
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="requestCategory">
+              <select
+                name="requestCategory"
+                id="requestCategory"
+                onChange={handleChange}
+                required
+              >
+                <option value="text">Select the domain you want</option>
+                {labels.map((label) => {
+                  return (
+                    <option value={parseInt(label.id, 10)}>
+                      {label.label}
+                    </option>
+                  );
+                })}
+              </select>
+            </label>
+          </form>
+        )}
+      </SDescription>
       {swaps.length ? <SwapWanted list={swaps} /> : <SubmissionForm />}
-    </SDescription>
+    </>
   );
 }
