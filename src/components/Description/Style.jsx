@@ -36,10 +36,8 @@ const SDescription = styled.div`
 
   select {
     width: 340px;
-    height: 35px;
     border-radius: 5px;
-    border: none;
-    background-color: white;
+    height: 50px;
   }
 
   input {
