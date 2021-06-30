@@ -13,15 +13,22 @@ export default function SwapWanted() {
 
   return (
     <SswapWanted>
-      <h1>{requests.length} swaps available</h1>
+      <h1>
+        <i>{requests.length}</i> Swaps available
+      </h1>
       <div className="container">
         {requests.map((request) => {
           return (
-            <div className="description">
-              <h2>{request.username}</h2>
-
-              <h3>{request.label}</h3>
-              <p>{request.textWanted}</p>
+            <div className="profile">
+              <div className="avatar" />
+              <div className="description">
+                <div className="title">
+                  <h2>{request.username}</h2>
+                  <div className="star">4,8 ★</div>
+                </div>
+                <h3>{request.label}</h3>
+                <p>{request.textWanted}</p>
+              </div>
             </div>
           );
         })}

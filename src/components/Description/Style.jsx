@@ -4,7 +4,7 @@ const SDescription = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 90vh;
+  height: 85vh;
 
   margin-left: 165px;
   font-family: 'Mukta', sans-serif;

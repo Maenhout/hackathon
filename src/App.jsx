@@ -7,7 +7,7 @@ import SwapWanted from './components/SwapWanted/SwapWanted';
 
 const SApp = styled.div`
   .App {
-    height: 90vh;
+    height: 85vh;
     background-image: url('/background.jpg');
     background-repeat: no-repeat;
     background-size: 100%;
